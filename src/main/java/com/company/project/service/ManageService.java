@@ -9,5 +9,5 @@ import com.company.project.core.Service;
 
 public interface ManageService extends Service<ManageService> {
 
-    public String send(Integer id);
+     String send(Integer id);
 }
