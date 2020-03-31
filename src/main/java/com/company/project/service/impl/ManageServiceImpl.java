@@ -16,8 +16,8 @@ import tk.mybatis.mapper.entity.Condition;
 @Service
 public class ManageServiceImpl implements ManageService {
     @Override
-    public String send() {
-        return "hello";
+    public String send(Integer id) {
+        return id.toString();
     }
 
     @Override
