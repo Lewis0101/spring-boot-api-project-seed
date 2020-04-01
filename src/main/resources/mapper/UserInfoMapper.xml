@@ -13,4 +13,15 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="profile" jdbcType="LONGVARCHAR" property="profile" />
   </resultMap>
+
+
+  <sql id="common">
+    a.user_id,a.user_name,a.email,a.create_time
+  </sql>
+
+  <select id="findPerson" resultMap="BaseResultMap">
+    select
+    <include refid="common" />
+    from user_info a
+  </select>
 </mapper>
