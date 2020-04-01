@@ -33,11 +33,11 @@ public class CodeGenerator {
     private static final String PACKAGE_PATH_SERVICE_IMPL = packageConvertPath(SERVICE_IMPL_PACKAGE);//生成的Service实现存放路径
     private static final String PACKAGE_PATH_CONTROLLER = packageConvertPath(CONTROLLER_PACKAGE);//生成的Controller存放路径
 
-    private static final String AUTHOR = "CodeGenerator";//@author
+    private static final String AUTHOR = "Lewis";//@author
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
 
     public static void main(String[] args) {
-        genCode("输入表名");
+        genCode("limits_relation");
         //genCodeByCustomModelName("输入表名","输入自定义Model名称");
     }
 
@@ -61,7 +61,7 @@ public class CodeGenerator {
     public static void genCodeByCustomModelName(String tableName, String modelName) {
         genModelAndMapper(tableName, modelName);
         genService(tableName, modelName);
-        genController(tableName, modelName);
+//        genController(tableName, modelName);
     }
 
 
@@ -163,32 +163,32 @@ public class CodeGenerator {
         }
     }
 
-    public static void genController(String tableName, String modelName) {
-        try {
-            freemarker.template.Configuration cfg = getConfiguration();
-
-            Map<String, Object> data = new HashMap<>();
-            data.put("date", DATE);
-            data.put("author", AUTHOR);
-            String modelNameUpperCamel = StringUtils.isEmpty(modelName) ? tableNameConvertUpperCamel(tableName) : modelName;
-            data.put("baseRequestMapping", modelNameConvertMappingPath(modelNameUpperCamel));
-            data.put("modelNameUpperCamel", modelNameUpperCamel);
-            data.put("modelNameLowerCamel", CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, modelNameUpperCamel));
-            data.put("basePackage", BASE_PACKAGE);
-
-            File file = new File(PROJECT_PATH + JAVA_PATH + PACKAGE_PATH_CONTROLLER + modelNameUpperCamel + "Controller.java");
-            if (!file.getParentFile().exists()) {
-                file.getParentFile().mkdirs();
-            }
-            //cfg.getTemplate("controller-restful.ftl").process(data, new FileWriter(file));
-            cfg.getTemplate("controller.ftl").process(data, new FileWriter(file));
-
-            System.out.println(modelNameUpperCamel + "Controller.java 生成成功");
-        } catch (Exception e) {
-            throw new RuntimeException("生成Controller失败", e);
-        }
-
-    }
+//    public static void genController(String tableName, String modelName) {
+//        try {
+//            freemarker.template.Configuration cfg = getConfiguration();
+//
+//            Map<String, Object> data = new HashMap<>();
+//            data.put("date", DATE);
+//            data.put("author", AUTHOR);
+//            String modelNameUpperCamel = StringUtils.isEmpty(modelName) ? tableNameConvertUpperCamel(tableName) : modelName;
+//            data.put("baseRequestMapping", modelNameConvertMappingPath(modelNameUpperCamel));
+//            data.put("modelNameUpperCamel", modelNameUpperCamel);
+//            data.put("modelNameLowerCamel", CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, modelNameUpperCamel));
+//            data.put("basePackage", BASE_PACKAGE);
+//
+//            File file = new File(PROJECT_PATH + JAVA_PATH + PACKAGE_PATH_CONTROLLER + modelNameUpperCamel + "Controller.java");
+//            if (!file.getParentFile().exists()) {
+//                file.getParentFile().mkdirs();
+//            }
+//            //cfg.getTemplate("controller-restful.ftl").process(data, new FileWriter(file));
+//            cfg.getTemplate("controller.ftl").process(data, new FileWriter(file));
+//
+//            System.out.println(modelNameUpperCamel + "Controller.java 生成成功");
+//        } catch (Exception e) {
+//            throw new RuntimeException("生成Controller失败", e);
+//        }
+//
+//    }
 
     private static freemarker.template.Configuration getConfiguration() throws IOException {
         freemarker.template.Configuration cfg = new freemarker.template.Configuration(freemarker.template.Configuration.VERSION_2_3_23);
