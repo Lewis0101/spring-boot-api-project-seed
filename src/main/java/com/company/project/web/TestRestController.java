@@ -9,10 +9,14 @@ import com.company.project.service.ManageService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -64,5 +68,18 @@ public class TestRestController {
     @ApiOperation(value = "获取用户名")
     public Result<List<UserInfo>> listUserName1(@RequestParam Long id){
         return ResultGenerator.genSuccessResult(userMapper.getName(id));
+    }
+
+    @PostMapping("/insert")
+    @ApiOperation(value = "插入用户信息")
+    public Result<Integer> insertInfos(@RequestBody UserInfo req){
+        int sum = 0;
+        for (int i = 2;i<10;i++){
+            req.setUserId(Long.valueOf(i));
+            req.setCreateTime(new Date(System.currentTimeMillis()));
+            int insert = userMapper.insert(req);
+            sum += insert;
+        }
+        return ResultGenerator.genSuccessResult(sum);
     }
 }

@@ -22,7 +22,6 @@ public class SwaggerConfigurer {
     @Bean
     public Docket createRestApi(){
         return new Docket(DocumentationType.SWAGGER_2)
-                .pathMapping("/")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.company.project.web"))
                 .paths(PathSelectors.any())

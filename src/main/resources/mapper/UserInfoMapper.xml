@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.UserInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="head_portrait" jdbcType="BIGINT" property="headPortrait" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="profile" jdbcType="LONGVARCHAR" property="profile" />
+  </resultMap>
+
+  <select id="getName" resultMap="BaseResultMap" parameterType="long">
+    select user_name from user_info where user_id = #{id}
+  </select>
+
+</mapper>
