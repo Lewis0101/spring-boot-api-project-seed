@@ -48,7 +48,7 @@ public class TestRestController {
 
     @GetMapping("/path")
     @ApiOperation(value = "Get接口参数传参")
-    public  String getFirstPath(@RequestParam(value = "id",required = true) Integer Id){
+    public  String getFirstPath(@RequestParam("id") Integer Id){
         return mService.send(Id);
     }
 
