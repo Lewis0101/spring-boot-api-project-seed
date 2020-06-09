@@ -11,7 +11,13 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static com.company.project.core.ProjectConstant.*;
+import static org.lewis.management.system.core.ProjectConstant.BASE_PACKAGE;
+import static org.lewis.management.system.core.ProjectConstant.CONTROLLER_PACKAGE;
+import static org.lewis.management.system.core.ProjectConstant.MAPPER_INTERFACE_REFERENCE;
+import static org.lewis.management.system.core.ProjectConstant.MAPPER_PACKAGE;
+import static org.lewis.management.system.core.ProjectConstant.MODEL_PACKAGE;
+import static org.lewis.management.system.core.ProjectConstant.SERVICE_IMPL_PACKAGE;
+import static org.lewis.management.system.core.ProjectConstant.SERVICE_PACKAGE;
 
 /**
  * 代码生成器，根据数据表名称生成对应的Model、Mapper、Service、Controller简化开发。
