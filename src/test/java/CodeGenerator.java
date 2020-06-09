@@ -24,10 +24,10 @@ import static org.lewis.management.system.core.ProjectConstant.SERVICE_PACKAGE;
  */
 public class CodeGenerator {
     //JDBC配置，请修改为你项目的实际配置
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/test";
-    private static final String JDBC_USERNAME = "root";
-    private static final String JDBC_PASSWORD = "123456";
-    private static final String JDBC_DIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
+    private static final String JDBC_URL = "jdbc:postgresql://192.168.109.156:5432/lewis?currentSchema=management";
+    private static final String JDBC_USERNAME = "pgsql";
+    private static final String JDBC_PASSWORD = "pgsql";
+    private static final String JDBC_DIVER_CLASS_NAME = "org.postgresql.Driver";
 
     private static final String PROJECT_PATH = System.getProperty("user.dir");//项目在硬盘上的基础路径
     private static final String TEMPLATE_FILE_PATH = PROJECT_PATH + "/src/test/resources/generator/template";//模板位置
@@ -43,8 +43,8 @@ public class CodeGenerator {
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
 
     public static void main(String[] args) {
-        genCode("");
-        genCodeByCustomModelName("输入表名","输入自定义Model名称");
+//        genCode("personnelinfo");
+        genCodeByCustomModelName("personnel_adjust_salary","PersonnelAdjustSalary");
     }
 
     /**
@@ -67,7 +67,7 @@ public class CodeGenerator {
     public static void genCodeByCustomModelName(String tableName, String modelName) {
         genModelAndMapper(tableName, modelName);
         genService(tableName, modelName);
-//        genController(tableName, modelName);
+        genController(tableName, modelName);
     }
 
 

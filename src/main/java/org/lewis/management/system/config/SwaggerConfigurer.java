@@ -32,7 +32,7 @@ public class SwaggerConfigurer {
         return  new ApiInfoBuilder()
                 .title("人事管理系统")
                 .description("人事管理系统v1.0")
-                .version("1.0")
+                .version("v1.0")
                 .contact("1005859278@qq.com")
                 .build();
     }

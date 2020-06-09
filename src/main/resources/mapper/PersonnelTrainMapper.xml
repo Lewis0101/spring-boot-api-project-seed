@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lewis.management.system.mapper.PersonnelTrainMapper">
+  <resultMap id="BaseResultMap" type="org.lewis.management.system.model.PersonnelTrain">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="personnel_id" jdbcType="VARCHAR" property="personnelId" />
+    <result column="train_date" jdbcType="TIMESTAMP" property="trainDate" />
+    <result column="train_content" jdbcType="VARCHAR" property="trainContent" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lewis.management.system.mapper.PersonnelInfoMapper">
+  <resultMap id="BaseResultMap" type="org.lewis.management.system.model.PersonnelInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="personnel_id" jdbcType="VARCHAR" property="personnelId" />
+    <result column="personnel_name" jdbcType="VARCHAR" property="personnelName" />
+    <result column="personnel_sex" jdbcType="VARCHAR" property="personnelSex" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="wedlock" jdbcType="VARCHAR" property="wedlock" />
+    <result column="race" jdbcType="VARCHAR" property="race" />
+    <result column="native_place" jdbcType="VARCHAR" property="nativePlace" />
+    <result column="politic" jdbcType="VARCHAR" property="politic" />
+    <result column="e_mail" jdbcType="VARCHAR" property="eMail" />
+    <result column="phone" jdbcType="BIGINT" property="phone" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="department" jdbcType="VARCHAR" property="department" />
+    <result column="job" jdbcType="VARCHAR" property="job" />
+    <result column="duty" jdbcType="VARCHAR" property="duty" />
+    <result column="base_salary" jdbcType="INTEGER" property="baseSalary" />
+    <result column="engage_form" jdbcType="VARCHAR" property="engageForm" />
+    <result column="tiptop_degree" jdbcType="VARCHAR" property="tiptopDegree" />
+    <result column="specialty" jdbcType="VARCHAR" property="specialty" />
+    <result column="school" jdbcType="VARCHAR" property="school" />
+    <result column="begin_work_date" jdbcType="TIMESTAMP" property="beginWorkDate" />
+    <result column="work_state" jdbcType="VARCHAR" property="workState" />
+    <result column="work_id" jdbcType="INTEGER" property="workId" />
+    <result column="contract_term" jdbcType="SMALLINT" property="contractTerm" />
+    <result column="be_form_date" jdbcType="TIMESTAMP" property="beFormDate" />
+    <result column="not_work_date" jdbcType="TIMESTAMP" property="notWorkDate" />
+    <result column="begin_contract" jdbcType="TIMESTAMP" property="beginContract" />
+    <result column="end_contract" jdbcType="TIMESTAMP" property="endContract" />
+    <result column="work_age" jdbcType="SMALLINT" property="workAge" />
+    <result column="is_deleted" jdbcType="SMALLINT" property="isDeleted" />
+  </resultMap>
+</mapper>

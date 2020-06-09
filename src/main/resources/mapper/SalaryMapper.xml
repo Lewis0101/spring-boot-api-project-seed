@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lewis.management.system.mapper.SalaryMapper">
+  <resultMap id="BaseResultMap" type="org.lewis.management.system.model.Salary">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="personnel_id" jdbcType="VARCHAR" property="personnelId" />
+    <result column="bonus" jdbcType="INTEGER" property="bonus" />
+    <result column="lunch_salary" jdbcType="INTEGER" property="lunchSalary" />
+    <result column="traffic_salary" jdbcType="INTEGER" property="trafficSalary" />
+    <result column="basis_salary" jdbcType="INTEGER" property="basisSalary" />
+    <result column="total" jdbcType="INTEGER" property="total" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lewis.management.system.mapper.PersonnelRemoveMapper">
+  <resultMap id="BaseResultMap" type="org.lewis.management.system.model.PersonnelRemove">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="personnel_id" jdbcType="VARCHAR" property="personnelId" />
+    <result column="after_remove_deparment" jdbcType="VARCHAR" property="afterRemoveDeparment" />
+    <result column="after_remove_job" jdbcType="VARCHAR" property="afterRemoveJob" />
+    <result column="remove_date" jdbcType="TIMESTAMP" property="removeDate" />
+    <result column="remove_reason" jdbcType="VARCHAR" property="removeReason" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+</mapper>

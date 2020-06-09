@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lewis.management.system.mapper.PersonnelEncouragementMapper">
+  <resultMap id="BaseResultMap" type="org.lewis.management.system.model.PersonnelEncouragement">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="personnel_id" jdbcType="VARCHAR" property="personnelId" />
+    <result column="personnel_enc_or_chast_date" jdbcType="TIMESTAMP" property="personnelEncOrChastDate" />
+    <result column="personnel_enc_or_chast_reason" jdbcType="VARCHAR" property="personnelEncOrChastReason" />
+    <result column="personnel_enc_or_chast_point" jdbcType="VARCHAR" property="personnelEncOrChastPoint" />
+    <result column="personnel_enc_or_chast_sort" jdbcType="VARCHAR" property="personnelEncOrChastSort" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+</mapper>
