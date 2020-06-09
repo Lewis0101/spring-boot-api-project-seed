@@ -1,4 +1,4 @@
-package org.lewis.management.system.configurer;
+package org.lewis.management.system.config;
 
 import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.plugin.Interceptor;

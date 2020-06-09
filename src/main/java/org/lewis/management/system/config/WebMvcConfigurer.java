@@ -1,4 +1,4 @@
-package org.lewis.management.system.configurer;
+package org.lewis.management.system.config;
 
 import java.io.IOException;
 import java.nio.charset.Charset;

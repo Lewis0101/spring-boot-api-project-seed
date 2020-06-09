@@ -43,7 +43,7 @@ public class CodeGenerator {
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
 
     public static void main(String[] args) {
-        genCode("role_relation");
+        genCode("");
         genCodeByCustomModelName("输入表名","输入自定义Model名称");
     }
 
@@ -169,32 +169,32 @@ public class CodeGenerator {
         }
     }
 
-//    public static void genController(String tableName, String modelName) {
-//        try {
-//            freemarker.template.Configuration cfg = getConfiguration();
-//
-//            Map<String, Object> data = new HashMap<>();
-//            data.put("date", DATE);
-//            data.put("author", AUTHOR);
-//            String modelNameUpperCamel = StringUtils.isEmpty(modelName) ? tableNameConvertUpperCamel(tableName) : modelName;
-//            data.put("baseRequestMapping", modelNameConvertMappingPath(modelNameUpperCamel));
-//            data.put("modelNameUpperCamel", modelNameUpperCamel);
-//            data.put("modelNameLowerCamel", CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, modelNameUpperCamel));
-//            data.put("basePackage", BASE_PACKAGE);
-//
-//            File file = new File(PROJECT_PATH + JAVA_PATH + PACKAGE_PATH_CONTROLLER + modelNameUpperCamel + "Controller.java");
-//            if (!file.getParentFile().exists()) {
-//                file.getParentFile().mkdirs();
-//            }
-//            //cfg.getTemplate("controller-restful.ftl").process(data, new FileWriter(file));
-//            cfg.getTemplate("controller.ftl").process(data, new FileWriter(file));
-//
-//            System.out.println(modelNameUpperCamel + "Controller.java 生成成功");
-//        } catch (Exception e) {
-//            throw new RuntimeException("生成Controller失败", e);
-//        }
-//
-//    }
+    public static void genController(String tableName, String modelName) {
+        try {
+            freemarker.template.Configuration cfg = getConfiguration();
+
+            Map<String, Object> data = new HashMap<>();
+            data.put("date", DATE);
+            data.put("author", AUTHOR);
+            String modelNameUpperCamel = StringUtils.isEmpty(modelName) ? tableNameConvertUpperCamel(tableName) : modelName;
+            data.put("baseRequestMapping", modelNameConvertMappingPath(modelNameUpperCamel));
+            data.put("modelNameUpperCamel", modelNameUpperCamel);
+            data.put("modelNameLowerCamel", CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, modelNameUpperCamel));
+            data.put("basePackage", BASE_PACKAGE);
+
+            File file = new File(PROJECT_PATH + JAVA_PATH + PACKAGE_PATH_CONTROLLER + modelNameUpperCamel + "Controller.java");
+            if (!file.getParentFile().exists()) {
+                file.getParentFile().mkdirs();
+            }
+            //cfg.getTemplate("controller-restful.ftl").process(data, new FileWriter(file));
+            cfg.getTemplate("controller.ftl").process(data, new FileWriter(file));
+
+            System.out.println(modelNameUpperCamel + "Controller.java 生成成功");
+        } catch (Exception e) {
+            throw new RuntimeException("生成Controller失败", e);
+        }
+
+    }
 
     private static freemarker.template.Configuration getConfiguration() throws IOException {
         freemarker.template.Configuration cfg = new freemarker.template.Configuration(freemarker.template.Configuration.VERSION_2_3_23);

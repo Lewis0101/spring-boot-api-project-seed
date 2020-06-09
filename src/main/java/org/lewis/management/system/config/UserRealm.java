@@ -1,4 +1,4 @@
-package org.lewis.management.system.configurer;
+package org.lewis.management.system.config;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
