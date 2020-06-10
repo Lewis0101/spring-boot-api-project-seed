@@ -36,4 +36,8 @@
     <result column="work_age" jdbcType="SMALLINT" property="workAge" />
     <result column="is_deleted" jdbcType="SMALLINT" property="isDeleted" />
   </resultMap>
+
+  <select id="getBaseInfo" parameterType="org.lewis.management.system.dto.request.PersonnelInfoReqDTO" resultMap="BaseResultMap">
+    select * from "management"."personnel_info" where personnel_id = #{personnelId}
+  </select>
 </mapper>

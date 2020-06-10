@@ -5,7 +5,6 @@ import org.lewis.management.system.dto.request.PersonnelInfoReqDTO;
 import org.lewis.management.system.dto.response.PersonnelInfoResDTO;
 import org.lewis.management.system.service.PersonnelInfoService;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,10 +35,10 @@ public class PersonnelInfoController {
         return ResultGenerator.genSuccessResult();
     }
 
-    @GetMapping("/list")
+    @PostMapping("/list")
     @ApiOperation("查询员工基本信息")
-    public PersonnelInfoResDTO list() {
-        return null;
+    public Result<PersonnelInfoResDTO> list(@RequestBody PersonnelInfoReqDTO req) {
+        return ResultGenerator.genSuccessResult(personnelInfoService.getBaseInfo(req));
     }
 
 
