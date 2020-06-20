@@ -1,4 +1,4 @@
-package org.lewis.management.system.config;
+package org.lewis.management.system.common.config;
 
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.session.mgt.SessionManager;
