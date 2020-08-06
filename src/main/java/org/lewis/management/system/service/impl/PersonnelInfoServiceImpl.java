@@ -1,5 +1,6 @@
 package org.lewis.management.system.service.impl;
 
+import org.lewis.management.system.common.utils.RedisUtils;
 import org.lewis.management.system.dto.request.PersonnelInfoReqDTO;
 import org.lewis.management.system.dto.response.PersonnelInfoResDTO;
 import org.lewis.management.system.mapper.PersonnelInfoMapper;
@@ -22,11 +23,16 @@ public class PersonnelInfoServiceImpl  implements PersonnelInfoService {
     @Resource
     private PersonnelInfoMapper personnelinfoMapper;
 
+    @Resource
+    private RedisUtils redisUtils;
+
     @Override
     public PersonnelInfoResDTO getBaseInfo(PersonnelInfoReqDTO req) {
         PersonnelInfo baseInfo = personnelinfoMapper.getBaseInfo(req);
         PersonnelInfoResDTO res = new PersonnelInfoResDTO();
         BeanUtils.copyProperties(baseInfo,res);
+        //测试redis
+        redisUtils.setKey(String.valueOf(baseInfo),res.toString());
         return res;
     }
 }
