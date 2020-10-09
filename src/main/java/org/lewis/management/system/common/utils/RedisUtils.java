@@ -34,4 +34,13 @@ public class RedisUtils {
         return String.valueOf(redisTemplate.opsForValue().get(key));
     }
 
+    /**
+     *
+     * @param range
+     * @param key
+     */
+    public void setList(String range ,String... key){
+        redisTemplate.opsForList().leftPush(range,-1,key);
+    }
+
 }
