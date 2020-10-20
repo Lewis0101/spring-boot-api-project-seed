@@ -32,6 +32,7 @@ public class PersonnelInfoController {
     @PostMapping("/add")
     @ApiOperation("新增员工基本信息")
     public Result add(@RequestBody PersonnelInfoReqDTO req) {
+        personnelInfoService.save(req);
         return ResultGenerator.genSuccessResult();
     }
 

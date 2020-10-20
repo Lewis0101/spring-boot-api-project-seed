@@ -26,7 +26,7 @@ public class Expired implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        scheduledExecutor.scheduleWithFixedDelay(this::print,10,100, TimeUnit.MILLISECONDS);
+        scheduledExecutor.scheduleWithFixedDelay(this::print,10,100, TimeUnit.DAYS);
     }
 
     private void print(){

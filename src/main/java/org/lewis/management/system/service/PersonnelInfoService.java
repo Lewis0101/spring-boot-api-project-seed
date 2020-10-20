@@ -3,6 +3,7 @@ package org.lewis.management.system.service;
 
 import org.lewis.management.system.dto.request.PersonnelInfoReqDTO;
 import org.lewis.management.system.dto.response.PersonnelInfoResDTO;
+import org.lewis.management.system.model.PersonnelInfo;
 
 
 /**
@@ -16,5 +17,7 @@ public interface PersonnelInfoService  {
      * @return
      */
    PersonnelInfoResDTO getBaseInfo(PersonnelInfoReqDTO req);
+
+   void save(PersonnelInfoReqDTO req);
 
 }

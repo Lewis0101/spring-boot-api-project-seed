@@ -2,6 +2,15 @@ CREATE SCHEMA IF NOT EXISTS "management";
 
 drop table if exists "management"."personnel_info" ;
 
+
+drop sequence if exists "management"."personnel_id_seq";
+create sequence "management"."personnel_id_seq"
+increment 1
+minvalue 1
+maxvalue 9223372036854775807
+start 1
+cache 1;
+
 /*==============================================================*/
 /* Table: personnelInfo                                         */
 /*==============================================================*/
@@ -10,7 +19,7 @@ create table "management"."personnel_info" (
                              personnel_name       VARCHAR(50)          not null,
                              personnel_sex        VARCHAR(4)           null,
                              birthday             TIMESTAMP            null,
-                             id                   INT8                 not null,
+                             id     INT8     not null default nextval('personnel_id_seq'::regclass),
                              wedlock              VARCHAR(4)           null,
                              race                 VARCHAR(50)          null,
                              native_place         VARCHAR(50)          null,

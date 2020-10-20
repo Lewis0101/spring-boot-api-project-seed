@@ -1,5 +1,8 @@
 package org.lewis.management.system.service.impl;
 
+import com.fasterxml.jackson.databind.util.BeanUtil;
+import com.fasterxml.jackson.databind.util.Converter;
+
 import org.lewis.management.system.dto.request.PersonnelInfoReqDTO;
 import org.lewis.management.system.dto.response.PersonnelInfoResDTO;
 import org.lewis.management.system.mapper.PersonnelInfoMapper;
@@ -13,18 +16,24 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 
-
 /**
  * Created by Lewis on 2020/06/09.
  */
 @Service
-public class PersonnelInfoServiceImpl  implements PersonnelInfoService {
+public class PersonnelInfoServiceImpl implements PersonnelInfoService {
     @Resource
     private PersonnelInfoMapper personnelinfoMapper;
 
     @Override
     public PersonnelInfoResDTO getBaseInfo(PersonnelInfoReqDTO req) {
         return null;
+    }
+
+    @Override
+    public void save(PersonnelInfoReqDTO req) {
+        PersonnelInfo personnelInfo = new PersonnelInfo();
+        BeanUtils.copyProperties(req, personnelInfo);
+        personnelinfoMapper.insert(personnelInfo);
     }
 
 //    @Resource

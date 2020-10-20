@@ -17,7 +17,7 @@ public class DeleteResourceExpired {
     @Resource
     private PersonnelRemoveMapper mMapper;
 
-    @Scheduled(fixedRate = 2000)
+//    @Scheduled(fixedRate = 2000)
     public void point(){
         System.out.println("开始定时任务1");
         System.out.println(System.currentTimeMillis());
