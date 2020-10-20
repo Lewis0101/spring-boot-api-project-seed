@@ -30,6 +30,6 @@ public class Expired implements CommandLineRunner {
     }
 
     private void print(){
-        System.out.println("ScheduleExecutor");
+//        System.out.println("ScheduleExecutor");
     }
 }
