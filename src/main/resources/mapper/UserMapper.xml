@@ -11,4 +11,8 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
+
+  <select id="getUserInfos" resultMap="BaseResultMap" parameterType="String">
+    SELECT id,name,password,create_time,update_time from "user" where name = #{username}
+  </select>
 </mapper>
