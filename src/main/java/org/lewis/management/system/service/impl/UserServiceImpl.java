@@ -1,5 +1,6 @@
 package org.lewis.management.system.service.impl;
 
+import org.lewis.management.system.dto.request.UserReqDTO;
 import org.lewis.management.system.dto.response.UserResDTO;
 import org.lewis.management.system.mapper.UserMapper;
 import org.lewis.management.system.model.User;
@@ -28,5 +29,10 @@ public class UserServiceImpl  implements UserService {
         UserResDTO userRes = new UserResDTO();
         BeanUtils.copyProperties(users,userRes);
         return userRes;
+    }
+
+    @Override
+    public void insertUser(UserReqDTO req) {
+        userMapper.insertUser(req);
     }
 }

@@ -1,6 +1,7 @@
 package org.lewis.management.system.service;
 
 
+import org.lewis.management.system.dto.request.UserReqDTO;
 import org.lewis.management.system.dto.response.UserResDTO;
 
 /**
@@ -9,5 +10,7 @@ import org.lewis.management.system.dto.response.UserResDTO;
 public interface UserService {
 
     UserResDTO getUserInfo(String username);
+
+    void insertUser(UserReqDTO req);
 
 }

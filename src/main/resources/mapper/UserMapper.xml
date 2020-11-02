@@ -1,18 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.lewis.management.system.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="org.lewis.management.system.model.User">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <result column="id" jdbcType="INTEGER" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="org.lewis.management.system.model.User">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    </resultMap>
 
-  <select id="getUserInfos" resultMap="BaseResultMap" parameterType="String">
-    SELECT id,name,password,create_time,update_time from "user" where name = #{username}
-  </select>
+    <select id="getUserInfos" resultMap="BaseResultMap" parameterType="String">
+        SELECT id,name,password,create_time,update_time
+        from "user"
+        where name = #{username}
+    </select>
+
+    <insert id="insertUser" parameterType="org.lewis.management.system.dto.request.UserReqDTO">
+        INSERT INTO "user" (name, password)
+        VALUES (#{name}, #{password})
+    </insert>
 </mapper>
