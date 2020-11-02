@@ -24,7 +24,7 @@ import static org.lewis.management.system.core.ProjectConstant.SERVICE_PACKAGE;
  */
 public class CodeGenerator {
     //JDBC配置，请修改为你项目的实际配置
-    private static final String JDBC_URL = "jdbc:postgresql://192.168.109.156:5432/lewis?currentSchema=management";
+    private static final String JDBC_URL = "jdbc:postgresql://192.168.108.117:5432/lewis?currentSchema=lys";
     private static final String JDBC_USERNAME = "pgsql";
     private static final String JDBC_PASSWORD = "pgsql";
     private static final String JDBC_DIVER_CLASS_NAME = "org.postgresql.Driver";
@@ -44,7 +44,7 @@ public class CodeGenerator {
 
     public static void main(String[] args) {
 //        genCode("personnelinfo");
-        genCodeByCustomModelName("personnel_adjust_salary","PersonnelAdjustSalary");
+        genCodeByCustomModelName("user","User");
     }
 
     /**

@@ -1,10 +1,10 @@
-CREATE SCHEMA IF NOT EXISTS "management";
+CREATE SCHEMA IF NOT EXISTS "lys";
 
-drop table if exists "management"."personnel_info" ;
+drop table if exists "lys"."personnel_info" ;
 
 
-drop sequence if exists "management"."personnel_id_seq";
-create sequence "management"."personnel_id_seq"
+drop sequence if exists "lys"."personnel_id_seq";
+create sequence "lys"."personnel_id_seq"
 increment 1
 minvalue 1
 maxvalue 9223372036854775807
@@ -14,7 +14,7 @@ cache 1;
 /*==============================================================*/
 /* Table: personnelInfo                                         */
 /*==============================================================*/
-create table "management"."personnel_info" (
+create table "lys"."personnel_info" (
                              personnel_id         VARCHAR(10)          not null,
                              personnel_name       VARCHAR(50)          not null,
                              personnel_sex        VARCHAR(4)           null,
@@ -48,106 +48,106 @@ create table "management"."personnel_info" (
                              constraint PK_PERSONNELINFO primary key (personnel_id)
 );
 
-comment on column "management"."personnel_info"."personnel_id" is
+comment on column "lys"."personnel_info"."personnel_id" is
 '员工编号';
 
-comment on column "management"."personnel_info"."personnel_name" is
+comment on column "lys"."personnel_info"."personnel_name" is
 '员工姓名';
 
-comment on column "management"."personnel_info"."personnel_sex" is
+comment on column "lys"."personnel_info"."personnel_sex" is
 '员工性别';
 
-comment on column "management"."personnel_info"."birthday" is
+comment on column "lys"."personnel_info"."birthday" is
 '出生日期';
 
-comment on column "management"."personnel_info"."id" is
+comment on column "lys"."personnel_info"."id" is
 '身份证号码';
 
-comment on column "management"."personnel_info"."wedlock" is
+comment on column "lys"."personnel_info"."wedlock" is
 '婚姻状况';
 
-comment on column "management"."personnel_info"."race" is
+comment on column "lys"."personnel_info"."race" is
 '民族';
 
-comment on column "management"."personnel_info"."native_place" is
+comment on column "lys"."personnel_info"."native_place" is
 '籍贯';
 
-comment on column "management"."personnel_info"."politic" is
+comment on column "lys"."personnel_info"."politic" is
 '整治面貌';
 
-comment on column "management"."personnel_info"."e_mail" is
+comment on column "lys"."personnel_info"."e_mail" is
 '电子邮箱';
 
-comment on column "management"."personnel_info"."phone" is
+comment on column "lys"."personnel_info"."phone" is
 '联系电话';
 
-comment on column "management"."personnel_info"."address" is
+comment on column "lys"."personnel_info"."address" is
 '联系地址';
 
-comment on column "management"."personnel_info"."department" is
+comment on column "lys"."personnel_info"."department" is
 '部门';
 
-comment on column "management"."personnel_info"."job" is
+comment on column "lys"."personnel_info"."job" is
 '职位';
 
-comment on column "management"."personnel_info"."duty" is
+comment on column "lys"."personnel_info"."duty" is
 '职称';
 
-comment on column "management"."personnel_info"."base_salary" is
+comment on column "lys"."personnel_info"."base_salary" is
 '基本工资';
 
-comment on column "management"."personnel_info"."engage_form" is
+comment on column "lys"."personnel_info"."engage_form" is
 '聘用形式';
 
-comment on column "management"."personnel_info"."tiptop_degree" is
+comment on column "lys"."personnel_info"."tiptop_degree" is
 '最高学历';
 
-comment on column "management"."personnel_info"."specialty" is
+comment on column "lys"."personnel_info"."specialty" is
 '所属专业';
 
-comment on column "management"."personnel_info"."school" is
+comment on column "lys"."personnel_info"."school" is
 '毕业院校';
 
-comment on column "management"."personnel_info"."begin_work_date" is
+comment on column "lys"."personnel_info"."begin_work_date" is
 '入职时间';
 
-comment on column "management"."personnel_info"."work_state" is
+comment on column "lys"."personnel_info"."work_state" is
 '在职状态';
 
-comment on column "management"."personnel_info"."work_id" is
+comment on column "lys"."personnel_info"."work_id" is
 '工号';
 
-comment on column "management"."personnel_info"."contract_term" is
+comment on column "lys"."personnel_info"."contract_term" is
 '合同期限';
 
-comment on column "management"."personnel_info"."be_form_date" is
+comment on column "lys"."personnel_info"."be_form_date" is
 '转正日期';
 
-comment on column "management"."personnel_info"."not_work_date" is
+comment on column "lys"."personnel_info"."not_work_date" is
 '离职日期';
 
-comment on column "management"."personnel_info"."begin_contract" is
+comment on column "lys"."personnel_info"."begin_contract" is
 '合同起始日期';
 
-comment on column "management"."personnel_info"."end_contract" is
+comment on column "lys"."personnel_info"."end_contract" is
 '合同终止时期';
 
-comment on column "management"."personnel_info"."work_age" is
+comment on column "lys"."personnel_info"."work_age" is
 '工龄';
 
-comment on column "management"."personnel_info"."is_deleted" is
+comment on column "lys"."personnel_info"."is_deleted" is
 '删除状态，0：正常，1：已删除';
 
-comment on table "management"."personnel_info" is
+comment on table "lys"."personnel_info" is
 '员工信息表';
 
 
-drop table if exists "management"."personnel_train" ;
+drop table if exists "lys"."personnel_train" ;
 
 /*==============================================================*/
 /* Table: personnel_train                                       */
 /*==============================================================*/
-create table "management"."personnel_train" (
+create table "lys"."personnel_train" (
                                personnel_id         VARCHAR(10)          not null,
                                train_date           TIMESTAMP            null,
                                train_content        VARCHAR(100)         null,
@@ -155,28 +155,28 @@ create table "management"."personnel_train" (
                                constraint PK_PERSONNEL_TRAIN primary key (personnel_id)
 );
 
-comment on table "management"."personnel_train" is
+comment on table "lys"."personnel_train" is
 '员工培训表';
 
-comment on column "management"."personnel_train"."personnel_id" is
+comment on column "lys"."personnel_train"."personnel_id" is
 '员工编号';
 
-comment on column "management"."personnel_train"."train_date" is
+comment on column "lys"."personnel_train"."train_date" is
 '培训日期';
 
-comment on column "management"."personnel_train"."train_content" is
+comment on column "lys"."personnel_train"."train_content" is
 '培训内容';
 
-comment on column "management"."personnel_train"."remark" is
+comment on column "lys"."personnel_train"."remark" is
 '备注';
 
 
-drop table if exists "management"."personnel_encouragement" ;
+drop table if exists "lys"."personnel_encouragement" ;
 
 /*==============================================================*/
 /* Table: personnel_encouragement                               */
 /*==============================================================*/
-create table "management"."personnel_encouragement" (
+create table "lys"."personnel_encouragement" (
                                        personnel_id         VARCHAR(10)          not null,
                                        personnel_enc_or_chast_date TIMESTAMP            null,
                                        personnel_enc_or_chast_reason VARCHAR(50)          null,
@@ -186,34 +186,34 @@ create table "management"."personnel_encouragement" (
                                        constraint PK_PERSONNEL_ENCOURAGEMENT primary key (personnel_id)
 );
 
-comment on table "management"."personnel_encouragement" is
+comment on table "lys"."personnel_encouragement" is
 '员工奖罚表';
 
-comment on column "management"."personnel_encouragement"."personnel_id" is
+comment on column "lys"."personnel_encouragement"."personnel_id" is
 '员工编号';
 
-comment on column "management"."personnel_encouragement"."personnel_enc_or_chast_date" is
+comment on column "lys"."personnel_encouragement"."personnel_enc_or_chast_date" is
 '奖罚日期';
 
-comment on column "management"."personnel_encouragement"."personnel_enc_or_chast_reason" is
+comment on column "lys"."personnel_encouragement"."personnel_enc_or_chast_reason" is
 '奖罚原因';
 
-comment on column "management"."personnel_encouragement"."personnel_enc_or_chast_point" is
+comment on column "lys"."personnel_encouragement"."personnel_enc_or_chast_point" is
 '奖罚分';
 
-comment on column "management"."personnel_encouragement"."personnel_enc_or_chast_sort" is
+comment on column "lys"."personnel_encouragement"."personnel_enc_or_chast_sort" is
 '奖罚类别';
 
-comment on column "management"."personnel_encouragement"."remark" is
+comment on column "lys"."personnel_encouragement"."remark" is
 '备注';
 
 
-drop table if exists "management"."personnel_appraise" ;
+drop table if exists "lys"."personnel_appraise" ;
 
 /*==============================================================*/
 /* Table: personnel_appraise                                    */
 /*==============================================================*/
-create table "management"."personnel_appraise" (
+create table "lys"."personnel_appraise" (
                                   personnel_id         VARCHAR(10)          not null,
                                   appraise_date        TIMESTAMP            null,
                                   appraise_result      VARCHAR(10)          null,
@@ -222,31 +222,31 @@ create table "management"."personnel_appraise" (
                                   constraint PK_PERSONNEL_APPRAISE primary key (personnel_id)
 );
 
-comment on table "management"."personnel_appraise" is
+comment on table "lys"."personnel_appraise" is
 '员工评价表';
 
-comment on column "management"."personnel_appraise"."personnel_id" is
+comment on column "lys"."personnel_appraise"."personnel_id" is
 '员工主键';
 
-comment on column "management"."personnel_appraise"."appraise_date" is
+comment on column "lys"."personnel_appraise"."appraise_date" is
 '评价日期';
 
-comment on column "management"."personnel_appraise"."appraise_result" is
+comment on column "lys"."personnel_appraise"."appraise_result" is
 '考评结果';
 
-comment on column "management"."personnel_appraise"."appraise_content" is
+comment on column "lys"."personnel_appraise"."appraise_content" is
 '培训内容';
 
-comment on column "management"."personnel_appraise"."remark" is
+comment on column "lys"."personnel_appraise"."remark" is
 '备注';
 
 
-drop table if exists  "management"."personnel_remove" ;
+drop table if exists  "lys"."personnel_remove" ;
 
 /*==============================================================*/
 /* Table: personnel_remove                                      */
 /*==============================================================*/
-create table "management"."personnel_remove" (
+create table "lys"."personnel_remove" (
                                 personnel_id         VARCHAR(10)          not null,
                                 after_remove_deparment VARCHAR(10)          null,
                                 after_remove_job     VARCHAR(10)          null,
@@ -256,33 +256,33 @@ create table "management"."personnel_remove" (
                                 constraint PK_PERSONNEL_REMOVE primary key (personnel_id)
 );
 
-comment on table "management"."personnel_remove" is
+comment on table "lys"."personnel_remove" is
 '员工调动表';
 
-comment on column "management"."personnel_remove"."personnel_id" is
+comment on column "lys"."personnel_remove"."personnel_id" is
 '员工编号';
 
-comment on column "management"."personnel_remove"."after_remove_deparment" is
+comment on column "lys"."personnel_remove"."after_remove_deparment" is
 '调后部门';
 
-comment on column "management"."personnel_remove"."after_remove_job" is
+comment on column "lys"."personnel_remove"."after_remove_job" is
 '调后职位';
 
-comment on column "management"."personnel_remove"."remove_date" is
+comment on column "lys"."personnel_remove"."remove_date" is
 '调动日期';
 
-comment on column "management"."personnel_remove"."remove_reason" is
+comment on column "lys"."personnel_remove"."remove_reason" is
 '调动原因';
 
-comment on column "management"."personnel_remove"."remark" is
+comment on column "lys"."personnel_remove"."remark" is
 '备注';
 
-drop table if exists "management"."personnel_adjust_salary" ;
+drop table if exists "lys"."personnel_adjust_salary" ;
 
 /*==============================================================*/
 /* Table: personnel_adjust_salary                               */
 /*==============================================================*/
-create table "management"."personnel_adjust_salary" (
+create table "lys"."personnel_adjust_salary" (
                                        personnel_id         VARCHAR(10)          not null,
                                        adjust_salary_date   TIMESTAMP            null,
                                        before_adjust_salary INT4                 null,
@@ -292,34 +292,34 @@ create table "management"."personnel_adjust_salary" (
                                        constraint PK_PERSONNEL_ADJUST_SALARY primary key (personnel_id)
 );
 
-comment on table "management"."personnel_adjust_salary" is
+comment on table "lys"."personnel_adjust_salary" is
 '员工调薪表';
 
-comment on column "management"."personnel_adjust_salary"."personnel_id" is
+comment on column "lys"."personnel_adjust_salary"."personnel_id" is
 '员工编号';
 
-comment on column "management"."personnel_adjust_salary"."adjust_salary_date" is
+comment on column "lys"."personnel_adjust_salary"."adjust_salary_date" is
 '调薪日期';
 
-comment on column "management"."personnel_adjust_salary"."before_adjust_salary" is
+comment on column "lys"."personnel_adjust_salary"."before_adjust_salary" is
 '调前薪资';
 
-comment on column "management"."personnel_adjust_salary"."after_adjust_salary" is
+comment on column "lys"."personnel_adjust_salary"."after_adjust_salary" is
 '调后薪资';
 
-comment on column "management"."personnel_adjust_salary"."adjust_salary_reason" is
+comment on column "lys"."personnel_adjust_salary"."adjust_salary_reason" is
 '调薪原因';
 
-comment on column "management"."personnel_adjust_salary"."remark" is
+comment on column "lys"."personnel_adjust_salary"."remark" is
 '备注';
 
 
-drop table if exists  "management"."salary" ;
+drop table if exists  "lys"."salary" ;
 
 /*==============================================================*/
 /* Table: salary                                                */
 /*==============================================================*/
-create table "management"."salary" (
+create table "lys"."salary" (
                       personnel_id         VARCHAR(10)          not null,
                       bonus                INT4                 null,
                       lunch_salary         INT4                 null,
@@ -329,34 +329,34 @@ create table "management"."salary" (
                       constraint PK_SALARY primary key (personnel_id)
 );
 
-comment on table "management"."salary" is
+comment on table "lys"."salary" is
 '工资表';
 
-comment on column "management"."salary"."personnel_id" is
+comment on column "lys"."salary"."personnel_id" is
 '员工编号';
 
-comment on column "management"."salary"."bonus" is
+comment on column "lys"."salary"."bonus" is
 '奖金';
 
-comment on column "management"."salary"."lunch_salary" is
+comment on column "lys"."salary"."lunch_salary" is
 '午餐补助';
 
-comment on column "management"."salary"."traffic_salary" is
+comment on column "lys"."salary"."traffic_salary" is
 '交通补助';
 
-comment on column "management"."salary"."basis_salary" is
+comment on column "lys"."salary"."basis_salary" is
 '基本工资';
 
-comment on column "management"."salary"."total" is
+comment on column "lys"."salary"."total" is
 '总工资';
 
 
-drop table if exists "management"."op";
+drop table if exists "lys"."op";
 
 /*==============================================================*/
 /* Table: op                                                    */
 /*==============================================================*/
-create table "management"."op" (
+create table "lys"."op" (
                   popedom              VARCHAR(10)          null,
                   op_id                INT4                 not null,
                   op_name              VARCHAR(50)          null,
@@ -367,50 +367,75 @@ create table "management"."op" (
                   constraint PK_OP primary key (op_id)
 );
 
-comment on table "management"."op" is
+comment on table "lys"."op" is
 '操作员表';
 
-comment on column "management"."op"."popedom" is
+comment on column "lys"."op"."popedom" is
 '权限组';
 
-comment on column "management"."op"."op_id" is
+comment on column "lys"."op"."op_id" is
 '编号';
 
-comment on column "management"."op"."op_name" is
+comment on column "lys"."op"."op_name" is
 '操作员姓名';
 
-comment on column "management"."op"."op_phone" is
+comment on column "lys"."op"."op_phone" is
 '手机号码';
 
-comment on column "management"."op"."op_tele" is
+comment on column "lys"."op"."op_tele" is
 '住宅电话';
 
-comment on column "management"."op"."op_address" is
+comment on column "lys"."op"."op_address" is
 '联系地址';
 
-comment on column "management"."op"."remark" is
+comment on column "lys"."op"."remark" is
 '备注';
 
 
-drop table if exists "management"."operate";
+drop table if exists "lys"."operate";
 
 /*==============================================================*/
 /* Table: operate                                               */
 /*==============================================================*/
-create table "management"."operate" (
+create table "lys"."operate" (
                        add_date             TIMESTAMP            null,
                        event                VARCHAR(50)          null,
                        op                   VARCHAR(10)          null
 );
 
-comment on table "management"."operate" is
+comment on table "lys"."operate" is
 '操作日志表';
 
-comment on column "management"."operate"."add_date" is
+comment on column "lys"."operate"."add_date" is
 '添加日期';
 
-comment on column "management"."operate"."event" is
+comment on column "lys"."operate"."event" is
 '事件内容';
 
-comment on column "management"."operate"."op" is
+comment on column "lys"."operate"."op" is
 '操作员';
+
+
+
+drop sequence if exists "lys"."user_id_seq";
+create sequence "lys"."user_id_seq"
+increment 1
+minvalue 1
+maxvalue 9223372036854775807
+start 1
+cache 1;
+
+
+DROP TABLE IF EXISTS "lys"."user";
+CREATE TABLE "lys"."user" (
+                            "id" int4 NOT NULL default nextval('user_id_seq'::regclass),
+                            "name" varchar(50) COLLATE "pg_catalog"."default" NOT NULL,
+                            "password" varchar(100) COLLATE "pg_catalog"."default" NOT NULL,
+                            "create_time" timestamp(6),
+                            "update_time" timestamp(6)
+)
+;
+COMMENT ON COLUMN "lys"."user"."name" IS '用户名';
+COMMENT ON COLUMN "lys"."user"."password" IS '密码';
+COMMENT ON COLUMN "lys"."user"."create_time" IS '创建时间';
+COMMENT ON COLUMN "lys"."user"."update_time" IS '更新时间';
