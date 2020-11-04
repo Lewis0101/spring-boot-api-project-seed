@@ -1,5 +1,7 @@
 package org.lewis.management.system.controller;
 
+import org.lewis.management.system.common.result.Result;
+import org.lewis.management.system.common.result.ResultUtil;
 import org.lewis.management.system.common.utils.CookieUtil;
 import org.lewis.management.system.dto.request.UserReqDTO;
 import org.lewis.management.system.dto.response.UserResDTO;
@@ -36,22 +38,24 @@ public class LoginController {
 
     @GetMapping
     @ApiOperation(notes = "查询用户信息", value = "查询用户信息")
-    public UserResDTO getUserInfo(HttpServletResponse response, @RequestParam("user_name") String username) {
-        CookieUtil.addCookie(response, username, "123", 30);
-        return userService.getUserInfo(username);
+    public Result<UserResDTO> getUserInfo(HttpServletResponse response, @RequestParam("user_name") String username) {
+        String s = userService.getUserInfo(username).toString();
+        CookieUtil.addCookie(response, username, s, 30);
+        return ResultUtil.success(userService.getUserInfo(username));
     }
 
     @PostMapping
-    public String register(@Valid @RequestBody UserReqDTO req) {
+    @ApiOperation(notes = "注册", value = "注册")
+    public Result register(@Valid @RequestBody UserReqDTO req) {
         userService.insertUser(req);
-        return "register success";
+        return ResultUtil.success();
     }
 
     @PostMapping("/login")
     @ApiOperation(notes = "查询用户信息", value = "查询用户信息")
     public String login(HttpServletResponse response, @Valid @RequestBody UserReqDTO req) {
 
-        if ("".equals(req.getName()) || "".equals(req.getPassword())){
+        if ("".equals(req.getName()) || "".equals(req.getPassword())) {
             try {
                 throw new Exception("用户名或者密码为空");
             } catch (Exception e) {
@@ -60,16 +64,16 @@ public class LoginController {
         }
 
         UserResDTO userInfo = userService.getUserInfo(req.getName());
-        if (Objects.isNull(userInfo)){
+        if (Objects.isNull(userInfo)) {
             log.info("当前人员未注册！请注册！");
             try {
-                throw new  Exception("当前人员未注册！请注册！");
+                throw new Exception("当前人员未注册！请注册！");
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
 
-        CookieUtil.addCookie(response,req.getName(),req.getPassword(),30);
+        CookieUtil.addCookie(response, req.getName(), req.getPassword(), 30);
 
         return "登陆成功";
     }

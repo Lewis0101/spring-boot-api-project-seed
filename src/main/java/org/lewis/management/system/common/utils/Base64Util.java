@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Component
-public class getBase64 {
+public class Base64Util {
 
     /**
      * 通过URL获取base64字符串
