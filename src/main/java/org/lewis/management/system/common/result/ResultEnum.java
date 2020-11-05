@@ -8,7 +8,7 @@ package org.lewis.management.system.common.result;
 public enum ResultEnum {
     //这里是可以自己定义的，方便与前端交互即可
     UNKNOWN_ERROR(-1,"未知错误"),
-    SUCCESS(200,"成功"),
+    SUCCESS(200,"success"),
     SERVER_INTERNAL_ERROR(500,"服务器内部错误"),
     RESOURCE_NOT_FOUND(404,"资源未找到"),
     PARAMETER_NOT_VALID(400,"参数不合法"),

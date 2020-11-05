@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Objects;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
@@ -53,7 +54,7 @@ public class LoginController {
 
     @PostMapping("/login")
     @ApiOperation(notes = "查询用户信息", value = "查询用户信息")
-    public String login(HttpServletResponse response, @Valid @RequestBody UserReqDTO req) {
+    public Result login(HttpServletResponse response, @Valid @RequestBody UserReqDTO req) {
 
         if ("".equals(req.getName()) || "".equals(req.getPassword())) {
             try {
@@ -75,7 +76,13 @@ public class LoginController {
 
         CookieUtil.addCookie(response, req.getName(), req.getPassword(), 30);
 
-        return "登陆成功";
+        return ResultUtil.success();
+    }
+
+    @GetMapping("/logout")
+    @ApiOperation(notes = "登出", value = "登出")
+    public void getUserInfo(HttpServletRequest request) {
+//        CookieUtil.getUid()
     }
 
 }
