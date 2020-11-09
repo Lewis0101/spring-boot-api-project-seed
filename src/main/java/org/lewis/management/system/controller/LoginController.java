@@ -83,7 +83,8 @@ public class LoginController {
 
         CookieUtil.addCookie(response, req.getName(), req.getPassword(), 30);
         //登录信息存入redis
-        redisUtils.setKey(ProjectConstants.LOGINFO,userInfo.toString());
+        redisUtils.setKey(userInfo.getName(),userInfo.getPassword());
+
 
         return ResultUtil.success();
     }
@@ -93,5 +94,6 @@ public class LoginController {
     public void getUserInfo(HttpServletRequest request) {
 //        CookieUtil.getUid()
     }
+
 
 }

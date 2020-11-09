@@ -6,7 +6,7 @@ package org.lewis.management.system.common.config;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
@@ -20,12 +20,12 @@ public class RedisConfigurer extends CachingConfigurerSupport {
 
     /**
      * 自定义RedisTemplate
-     * @param redisConnectionFactory
+     * @param lettuceConnectionFactory
      * @return
      */
 
     @Bean
-    public RedisTemplate<String,Object> redisTemplate(RedisConnectionFactory redisConnectionFactory){
+    public RedisTemplate<String,Object> redisTemplate(LettuceConnectionFactory lettuceConnectionFactory){
         RedisTemplate<String,Object> redisTemplate = new RedisTemplate<>();
         StringRedisSerializer stringSerializer = new StringRedisSerializer();
         GenericJackson2JsonRedisSerializer genericJackson2JsonRedisSerializer = new GenericJackson2JsonRedisSerializer();
@@ -37,7 +37,7 @@ public class RedisConfigurer extends CachingConfigurerSupport {
         redisTemplate.setHashKeySerializer(genericJackson2JsonRedisSerializer);
         redisTemplate.setHashValueSerializer(genericJackson2JsonRedisSerializer);
 
-        redisTemplate.setConnectionFactory(redisConnectionFactory);
+        redisTemplate.setConnectionFactory(lettuceConnectionFactory);
         return redisTemplate;
     }
 }

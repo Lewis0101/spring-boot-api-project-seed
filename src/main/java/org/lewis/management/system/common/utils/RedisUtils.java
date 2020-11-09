@@ -13,14 +13,14 @@ import javax.annotation.Resource;
 public class RedisUtils {
 
     @Resource
-    private RedisTemplate<String,Object> redisTemplate;
+    private RedisTemplate redisTemplate;
 
     /**
      * 添加String
      * @param name
      * @param key
      */
-    public void setKey(String name,String key){
+    public  void setKey(String name,String key){
         redisTemplate.opsForValue().set(name,key);
 
     }
