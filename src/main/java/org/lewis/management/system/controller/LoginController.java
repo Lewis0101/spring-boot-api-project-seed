@@ -1,8 +1,11 @@
 package org.lewis.management.system.controller;
 
+import org.lewis.management.system.common.constant.ProjectConstants;
 import org.lewis.management.system.common.result.Result;
 import org.lewis.management.system.common.result.ResultUtil;
 import org.lewis.management.system.common.utils.CookieUtil;
+import org.lewis.management.system.common.utils.RedisUtils;
+import org.lewis.management.system.core.ProjectConstant;
 import org.lewis.management.system.dto.request.UserReqDTO;
 import org.lewis.management.system.dto.response.UserResDTO;
 import org.lewis.management.system.service.UserService;
@@ -36,6 +39,10 @@ import lombok.extern.slf4j.Slf4j;
 public class LoginController {
     @Resource
     private UserService userService;
+
+    @Resource
+    private RedisUtils redisUtils;
+
 
     @GetMapping
     @ApiOperation(notes = "查询用户信息", value = "查询用户信息")
@@ -75,6 +82,8 @@ public class LoginController {
         }
 
         CookieUtil.addCookie(response, req.getName(), req.getPassword(), 30);
+        //登录信息存入redis
+        redisUtils.setKey(ProjectConstants.LOGINFO,userInfo.toString());
 
         return ResultUtil.success();
     }
