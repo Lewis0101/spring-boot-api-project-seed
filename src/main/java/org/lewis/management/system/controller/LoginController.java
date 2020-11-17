@@ -1,5 +1,7 @@
 package org.lewis.management.system.controller;
 
+import com.alibaba.fastjson.JSON;
+
 import org.lewis.management.system.common.constant.ProjectConstants;
 import org.lewis.management.system.common.result.Result;
 import org.lewis.management.system.common.result.ResultUtil;
@@ -26,6 +28,7 @@ import javax.validation.Valid;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import springfox.documentation.spring.web.json.Json;
 
 /**
  * Created by Lewis on 2020/11/02.
@@ -83,7 +86,7 @@ public class LoginController {
 
         CookieUtil.addCookie(response, req.getName(), req.getPassword(), 30);
         //登录信息存入redis
-        redisUtils.setKey(userInfo.getName(),userInfo.getPassword());
+        redisUtils.setKey(userInfo.getName(), JSON.toJSONString(userInfo));
 
 
         return ResultUtil.success();
