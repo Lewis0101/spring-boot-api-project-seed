@@ -2,12 +2,10 @@ package org.lewis.management.system.controller;
 
 import com.alibaba.fastjson.JSON;
 
-import org.lewis.management.system.common.constant.ProjectConstants;
 import org.lewis.management.system.common.result.Result;
 import org.lewis.management.system.common.result.ResultUtil;
 import org.lewis.management.system.common.utils.CookieUtil;
 import org.lewis.management.system.common.utils.RedisUtils;
-import org.lewis.management.system.core.ProjectConstant;
 import org.lewis.management.system.dto.request.UserReqDTO;
 import org.lewis.management.system.dto.response.UserResDTO;
 import org.lewis.management.system.service.UserService;
@@ -28,7 +26,6 @@ import javax.validation.Valid;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import springfox.documentation.spring.web.json.Json;
 
 /**
  * Created by Lewis on 2020/11/02.
@@ -49,9 +46,11 @@ public class LoginController {
 
     @GetMapping
     @ApiOperation(notes = "查询用户信息", value = "查询用户信息")
-    public Result<UserResDTO> getUserInfo(HttpServletResponse response, @RequestParam("user_name") String username) {
+    public Result<UserResDTO> getUserInfo(HttpServletResponse response,HttpServletRequest request, @RequestParam("user_name") String username) {
         String s = userService.getUserInfo(username).toString();
-        CookieUtil.addCookie(response, username, s, 30);
+        CookieUtil.addCookie(response, username, request.getSession().getId(), 30);
+//        log.info("sessionId:{}",request.getSession().getId());
+        log.info("从Client获取的sessionId：{}",CookieUtil.getUid(request,"JSESSIONID"));
         return ResultUtil.success(userService.getUserInfo(username));
     }
 

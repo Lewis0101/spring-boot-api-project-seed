@@ -16,6 +16,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 
+import org.lewis.management.system.common.servlet.MyFilter;
 import org.lewis.management.system.core.Result;
 import org.lewis.management.system.core.ResultCode;
 import org.lewis.management.system.core.ServiceException;
@@ -24,6 +25,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -211,5 +214,13 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/webjars/**").addResourceLocations(
                 "classpath:/META-INF/resources/webjars/");
         super.addResourceHandlers(registry);
+    }
+
+    @Bean
+    public FilterRegistrationBean getFilterRegistrationBean() {
+        FilterRegistrationBean bean  = new FilterRegistrationBean(new MyFilter());
+        //bean.addUrlPatterns(new String[] {"*.do","*.jsp"});
+        bean.addUrlPatterns("/first");
+        return bean;
     }
 }
